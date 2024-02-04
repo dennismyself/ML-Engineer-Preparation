@@ -131,7 +131,7 @@ Drop Columns
 import seaborn as sns
 sns.scatterplot(x='room_type', y='price', data=nyc_data) #'room_type' and 'price' are column names 
 ```
-	* DataFrame as Input: Seaborn functions can take pandas DataFrame directly as input. You can specify the column names for x, y, hue, etc., and Seaborn automatically uses the DataFrame's data.
+* DataFrame as Input: Seaborn functions can take pandas DataFrame directly as input. You can specify the column names for x, y, hue, etc., and Seaborn automatically uses the DataFrame's data.
 	
 * Convert Columns Data from for feature engineering
  nyc_data['neighbourhood_group'] = nyc_data['neighbourhood_group'].astype("category").cat.codes
