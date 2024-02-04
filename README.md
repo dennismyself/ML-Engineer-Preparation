@@ -132,20 +132,41 @@ import seaborn as sns
 sns.scatterplot(x='room_type', y='price', data=nyc_data) #'room_type' and 'price' are column names 
 ```
 	* DataFrame as Input: Seaborn functions can take pandas DataFrame directly as input. You can specify the column names for x, y, hue, etc., and Seaborn automatically uses the DataFrame's data.
-	• nyc_data['neighbourhood_group'] = nyc_data['neighbourhood_group'].astype("category").cat.codes
-		• Convert to categorical data first
-		• Then convert the categories to numbers
-		• .cat.codes is a simple and efficient way to transform categorical data into a numerical format, making it easier to use in various data analysis and machine learning contexts.
-	• Residual Plot: 
-		• Does linear regression
-		• Plot the difference between real and predicted value 
-		• If the data evenly scattered along the x axis -> linear model is appropriate 
-		• Multicollinearity is a statistical concept where several independent variables in a model are correlated. Two variables are considered perfectly collinear if their correlation coefficient is +/- 1.0. Multicollinearity among independent variables will result in less reliable statistical inferences.
-	• Variance Explanation: In the context of a correlation matrix, the eigenvalues indicate the amount of variance explained by each of the principal components (if you're performing PCA). A higher eigenvalue corresponds to a higher amount of variance explained by the principal component associated with that eigenvalue.
-	• PCA:
-		• Geometrically speaking, principal components represent the directions of the data that explain a maximal amount of variance, that is to say, the lines that capture most information of the data.
-		• Find eigen value and eign vector: multicollinearity, V=np.linalg.eig(corr)
-		scaler = StandardScaler()
-		df_scaled = scaler.fit_transform(df)
-		
-![image](https://github.com/dennismyself/ML-Engineer-Preparation/assets/54744433/75d235b1-001a-47c0-926f-68a084014f7f)
+	
+* Convert Columns Data from for feature engineering
+ nyc_data['neighbourhood_group'] = nyc_data['neighbourhood_group'].astype("category").cat.codes
+	* Convert to categorical data first
+	* Then convert the categories to numbers
+	* ```.cat.codes``` is a simple and efficient way to transform categorical data into a numerical format, making it easier to use in various data analysis and machine learning contexts.
+
+* Residual Plot: 
+	* Does linear regression
+	* Plot the difference between real and predicted value 
+	* If the data evenly scattered along the x axis -> linear model is appropriate 
+
+* Principal Component Analysis (PCA)
+  	* Variance Explanation: In the context of a correlation matrix, the eigenvalues indicate the amount of variance explained by each of the principal components (if you're performing PCA). A higher eigenvalue corresponds to a higher amount of variance explained by the principal component associated with that eigenvalue.
+  	* Geometrically speaking, principal components represent the directions of the data that explain a maximal amount of variance, that is to say, the lines that capture most information of the data.
+	* Application 1: Used to detect Multicollinearity
+		* Multicollinearity is a statistical concept where several independent variables in a model are correlated. Two variables are considered perfectly collinear if their correlation coefficient is +/- 1.0. Multicollinearity among independent variables will result in less reliable statistical inferences.
+		* Find eigen value and eign vector: multicollinearity
+		```
+		V=np.linalg.eig(corr)
+  		# If none one of the eigenvalues of the correlation matrix is close to zero. It means that there is no multicollinearity exists in the data.
+		```
+ 	* Application 2: Dimension Reduction
+```
+import numpy as np
+import pandas as pd
+from sklearn.decomposition import PCA
+from sklearn.preprocessing import StandardScaler
+import matplotlib.pyplot as plt
+# Standarise the data to mean = 1, variance = 1
+scaler = StandardScaler()
+df_scaled = scaler.fit_transform(df)
+# Three main components
+pca = PCA(n_components=3)
+pca.fit(df_scaled)
+# Transform the data to the new PCA space
+df_pca = pca.transform(df_scaled)
+```
