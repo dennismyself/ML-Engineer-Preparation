@@ -52,17 +52,18 @@ df.rename(columns={'OldName1': 'NewName1', 'OldName2': 'NewName2'}, inplace=True
 
 * Select Data
 ```
-  students.loc[students['student_id'] == 101, ['name', 'age']]
+students.loc[students['student_id'] == 101, ['name', 'age']]
 dataframe.iloc[row_indices, column_indices]
 ```
-  * Drop Duplicates
-  		* subset: This is the column label or sequence of labels to consider for identifying duplicate rows. If not provided, it considers all columns in the DataFrame.
-  		*  keep: This argument determines which duplicate row to retain.
-    			*  'first': (default) Drop duplicates except for the first occurrence.
-    			*  'last': Drop duplicates except for the last occurrence.
-    			*  False: Drop all duplicates.
-  		* inplace: If set to True, the changes are made directly to the object without returning a new object. If set to False (default), a new object with duplicates dropped will be returned.
-  		* newDF = customers.drop_duplicates(subset = "email", keep = "first", inplace = False)
+
+* Drop Duplicates
+  * subset: This is the column label or sequence of labels to consider for identifying duplicate rows. If not provided, it considers all columns in the DataFrame.
+  * keep: This argument determines which duplicate row to retain.
+  * 'first': (default) Drop duplicates except for the first occurrence.
+  * 'last': Drop duplicates except for the last occurrence.
+  * False: Drop all duplicates.
+  * inplace: If set to True, the changes are made directly to the object without returning a new object. If set to False (default), a new object with duplicates dropped will be returned.
+  * newDF = customers.drop_duplicates(subset = "email", keep = "first", inplace = False)
 		
 * Drop Empty Cells
 	*  dropna Function: The dropna function belongs to the pandas DataFrame and is used to remove missing values. Missing data in pandas is generally represented by the NaN
@@ -74,9 +75,9 @@ dataframe.iloc[row_indices, column_indices]
 		*  thresh: Require that many non-NA values. This is an integer argument which requires a minimum number of non-NA values to keep the row/column.
 		*  subset: Labels along the other axis to consider, e.g. if you are dropping rows these would be a list of columns to include. This is particularly useful when you only want to consider NA values in certain columns.
 		*  inplace: It's a boolean which makes the changes in data frame itself if True. Always remember when using the inplace=True argument, you're modifying the original DataFrame. If you need to retain the original data for any reason, avoid using inplace=True and instead assign the result to a new DataFrame.
-		```
-		newdf = students.dropna(axis = 0, subset = "name")
-		```
+```
+newdf = students.dropna(axis = 0, subset = "name")
+```
 * Change Data Type 
   	* astype Function: The astype function is used to cast a pandas object to a specified dtype (data type). astype can be used to cast a pandas object to any dtype. The astype function does not modify the original DataFrame in place. Instead, it returns a new DataFrame with the specified data type changes
   	* dtype: It's a data type, or dict of column name -> data type.
@@ -84,9 +85,9 @@ dataframe.iloc[row_indices, column_indices]
   	* errors: Controls the raising of exceptions on invalid data for the provided dtype. By default, raise is set which means exceptions will be raised.
 
 ```
-	students = students.astype({'grade':int})
-	#OR
-	students["grade"] = students["grade"].astype("int")
+students = students.astype({'grade':int})
+#OR
+students["grade"] = students["grade"].astype("int")
 ```
 * Fillna Function: fillna is a function in the pandas library, used primarily with pandas Series and DataFrame objects. It allows you to fill NA/NaN values using specified methods. In this context, we are using it to replace the None (or NaN in the usual dataframe representation) values.
 
@@ -100,17 +101,17 @@ products["quantity"].fillna(0, inplace = True)
 		* The axis parameter determines the direction of concatenation:
 			* axis=0 is set as the default value, which means it will concatenate DataFrames vertically (by rows).
 			* axis=1 will concatenate DataFrames horizontally (by columns).
-	```
-	pd.concat([df1,df2], axis =0)
-	```
+```
+pd.concat([df1,df2], axis =0)
+```
   
 * The pivot Function
 	*  index: It determines the rows in the new DataFrame. For this example, we use the month column from the original DataFrame as the index, which means our pivoted table will have one row for each unique value in the month column.
 	* columns: It determines the columns in the new DataFrame. Here, we're using the city column, which means our pivoted table will have one column for each unique value in the city column.
 	* values: This argument specifies the values to be used when the table is reshaped. For this example, we use the temperature column from the original DataFrame.
-	```
- ans = weather.pivot(index='month', columns='city', values='temperature')
- ```
+```
+ans = weather.pivot(index='month', columns='city', values='temperature')
+```
 * Melt Function
 	* melt Function: pandas' melt function is used to transform or reshape data. It changes the DataFrame from a wide format, where columns represent multiple variables, to a long format, where each row represents a unique variable.
 	* After sorting the rows based on the weight, we're only interested in the name column for our final result. By using double square brackets [['name']], we select only this column. The double brackets ensure that the result is a DataFrame and not a Series.
@@ -118,9 +119,11 @@ products["quantity"].fillna(0, inplace = True)
 		a. String Data: By default, when pandas encounters a column that has text data (strings), it assigns the object data type to that column. This is because, under the hood, pandas stores strings in arrays of Python objects to accommodate the variable string length, as strings in Python are variable-length.
 		b. Mixed Types: If a column has mixed types (numbers and strings, for example), pandas will default to using the object data type for safety, as it can store arbitrary Python objects.
 Drop Columns 
-	```
+```
  nyc_model = nyc_data.drop(columns=['name','id' ,'host_id','host_name', 'last_review','price'])
 ```
+
+## Kaggle Airbnb Housing Price Prediction 
 Others
 	• Check how many null values: nyc_data.isnull().sum()
 	• Seaborn is a Python visualization library based on matplotlib that provides a high-level interface for drawing attractive and informative statistical graphics. 
