@@ -170,3 +170,18 @@ pca.fit(df_scaled)
 # Transform the data to the new PCA space
 df_pca = pca.transform(df_scaled)
 ```
+* Split training and testing sets
+```
+X_train, X_test, y_train, y_test = train_test_split(nyc_model_x, nyc_model_y, test_size=0.3,random_state=42)
+# random_state=42: Ensures reproducibility of the results. By setting a random state, you get the same split each time you run the code. 
+```
+* Extra Tree classifier
+	* Constructing Multiple Trees. Ensemble learning 
+   	* Different from Random Forest: For each tree, the entire dataset is used (unlike Random Forest which uses bootstrapped datasets).
+   	* Each bootstrapped dataset is a random sample of the original dataset and is of the same size as the original. Due to the nature of sampling with replacement, some observations may be repeated in each bootstrapped dataset, and some observations from the original dataset may be left out.
+   	* When constructing the trees, splits are chosen completely at random from the range of values in the sample at each split (unlike Random Forest which chooses the optimal split among a random subset of features).
+   	* The final prediction is made by averaging the predictions of the individual decision trees (for regression) or by taking the majority vote (for classification).
+
+
+
+
