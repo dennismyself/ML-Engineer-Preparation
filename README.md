@@ -124,7 +124,6 @@ Drop Columns
 ```
 
 ## Kaggle Airbnb Housing Price Prediction 
-Others
 	• Check how many null values: nyc_data.isnull().sum()
 	• Seaborn is a Python visualization library based on matplotlib that provides a high-level interface for drawing attractive and informative statistical graphics. 
 	
