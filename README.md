@@ -124,11 +124,14 @@ Drop Columns
 ```
 
 ## Kaggle Airbnb Housing Price Prediction 
-	• Check how many null values: nyc_data.isnull().sum()
-	• Seaborn is a Python visualization library based on matplotlib that provides a high-level interface for drawing attractive and informative statistical graphics. 
-	
-	• sns.scatterplot(x='room_type', y='price', data=nyc_data) #'room_type' and 'price' are column names 
-	• DataFrame as Input: Seaborn functions can take pandas DataFrame directly as input. You can specify the column names for x, y, hue, etc., and Seaborn automatically uses the DataFrame's data.
+* Check how many null values: ```nyc_data.isnull().sum()```
+* Seaborn
+	* Seaborn is a Python visualization library based on matplotlib that provides a high-level interface for drawing attractive and informative statistical graphics.
+```
+import seaborn as sns
+sns.scatterplot(x='room_type', y='price', data=nyc_data) #'room_type' and 'price' are column names 
+```
+	* DataFrame as Input: Seaborn functions can take pandas DataFrame directly as input. You can specify the column names for x, y, hue, etc., and Seaborn automatically uses the DataFrame's data.
 	• nyc_data['neighbourhood_group'] = nyc_data['neighbourhood_group'].astype("category").cat.codes
 		• Convert to categorical data first
 		• Then convert the categories to numbers
