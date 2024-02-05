@@ -8,7 +8,7 @@ lambda arguments: expression
 ```
 
 * map(function, iterable)
-** iterates through the iterables, pass each iterable to the function one by one
+	* iterates through the iterables, pass each iterable to the function one by one
 ```
 numbers = [1, 2, 3, 4]
 squared_numbers = map(lambda x: x ** 2, numbers)
@@ -28,6 +28,7 @@ pairs = [(1, 'one'), (3, 'three'), (2, 'two')]
 sorted_pairs = sorted(pairs, key=lambda pair: pair[1])
 print(sorted_pairs)  # Output: [(1, 'one'), (3, 'three'), (2, 'two')]
 ```
+* ```for i, ele in enumerate(l):```
 
 ## Pandas
 * All pandas methods: have the inplace attribute. False by default: True: Replace the original DF, False: 
@@ -189,6 +190,18 @@ transofrmed_y = preprocessing.LabelEncoder().fit_transform(y_train)
 feature_model = ExtraTreesClassifier(n_estimators=50)
 feature_model.fit(X_train,transofrmed_y)
 ```
+* Grid search
+```
+from sklearn.liner_model import linear_regression
+from sklearn.model_selection import GridSearchCV
+model = linear_regression()
+para = {}
+grid_search_LR = GridSearchCV(estimator = model, para_grod = para, cv = cv)
+grid_search_LR.fit(input_x,input_y)
+best_para = grid_search_LR.best_params_
+```
 
-
+## Interview Experience Based Preparation
+* Python sort() function time complexity is O(n log n) for average and worst cases.
+* Nested For loop: n^2
 
