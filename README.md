@@ -53,6 +53,8 @@ df.rename(columns={'OldName1': 'NewName1', 'OldName2': 'NewName2'}, inplace=True
 
 * Select Data
 ```
+df.loc[row_labels, column_labels]
+
 students.loc[students['student_id'] == 101, ['name', 'age']]
 dataframe.iloc[row_indices, column_indices]
 ```
