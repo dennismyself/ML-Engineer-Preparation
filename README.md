@@ -64,7 +64,9 @@ dataframe.iloc[row_indices, column_indices]
   * 'last': Drop duplicates except for the last occurrence.
   * False: Drop all duplicates.
   * inplace: If set to True, the changes are made directly to the object without returning a new object. If set to False (default), a new object with duplicates dropped will be returned.
-  * newDF = customers.drop_duplicates(subset = "email", keep = "first", inplace = False)
+```
+newDF = customers.drop_duplicates(subset = "email", keep = "first", inplace = False)
+```
 		
 * Drop Empty Cells
 	*  dropna Function: The dropna function belongs to the pandas DataFrame and is used to remove missing values. Missing data in pandas is generally represented by the NaN
