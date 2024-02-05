@@ -134,7 +134,9 @@ sns.scatterplot(x='room_type', y='price', data=nyc_data) #'room_type' and 'price
 * DataFrame as Input: Seaborn functions can take pandas DataFrame directly as input. You can specify the column names for x, y, hue, etc., and Seaborn automatically uses the DataFrame's data.
 	
 * Convert Columns Data from for feature engineering
- nyc_data['neighbourhood_group'] = nyc_data['neighbourhood_group'].astype("category").cat.codes
+```
+nyc_data['neighbourhood_group'] = nyc_data['neighbourhood_group'].astype("category").cat.codes
+```
 	* Convert to categorical data first
 	* Then convert the categories to numbers
 	* ```.cat.codes``` is a simple and efficient way to transform categorical data into a numerical format, making it easier to use in various data analysis and machine learning contexts.
@@ -142,7 +144,8 @@ sns.scatterplot(x='room_type', y='price', data=nyc_data) #'room_type' and 'price
 * Residual Plot: 
 	* Does linear regression
 	* Plot the difference between real and predicted value 
-	* If the data evenly scattered along the x axis -> linear model is appropriate 
+	* If the data evenly scattered along the x axis -> linear model is appropriate
+
 
 * Principal Component Analysis (PCA)
   	* Variance Explanation: In the context of a correlation matrix, the eigenvalues indicate the amount of variance explained by each of the principal components (if you're performing PCA). A higher eigenvalue corresponds to a higher amount of variance explained by the principal component associated with that eigenvalue.
@@ -181,7 +184,11 @@ X_train, X_test, y_train, y_test = train_test_split(nyc_model_x, nyc_model_y, te
    	* Each bootstrapped dataset is a random sample of the original dataset and is of the same size as the original. Due to the nature of sampling with replacement, some observations may be repeated in each bootstrapped dataset, and some observations from the original dataset may be left out.
    	* When constructing the trees, splits are chosen completely at random from the range of values in the sample at each split (unlike Random Forest which chooses the optimal split among a random subset of features).
    	* The final prediction is made by averaging the predictions of the individual decision trees (for regression) or by taking the majority vote (for classification).
-
+```
+transofrmed_y = preprocessing.LabelEncoder().fit_transform(y_train)
+feature_model = ExtraTreesClassifier(n_estimators=50)
+feature_model.fit(X_train,transofrmed_y)
+```
 
 
 
