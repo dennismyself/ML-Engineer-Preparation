@@ -39,6 +39,11 @@ x = sorted(a, reverse=True)
 * ```sum(map(int, numStr))``` map all string to int then sum up
 * ```alist.pop()``` pop out the last one
 * ```reverse a string range(len(x)-1,-1,-1)```
+* startwith and endwith
+```
+txt = "Hello, welcome to my world."
+x = txt.endswith("my world.")
+```
 ## Pandas
 * All pandas methods: have the inplace attribute. False by default: True: Replace the original DF, False: 
 * Create a new df
