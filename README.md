@@ -31,6 +31,10 @@ print(sorted_pairs)  # Output: [(1, 'one'), (3, 'three'), (2, 'two')]
 * ```for i, ele in enumerate(l):```
 
 * ```s1.count(i)``` count how many i in s1
+
+* ```//``` Floor division \: integer quotient
+* 
+* ```sum(map(int, numStr))``` map all string to int then sum up
 ## Pandas
 * All pandas methods: have the inplace attribute. False by default: True: Replace the original DF, False: 
 * Create a new df
