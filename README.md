@@ -208,4 +208,22 @@ best_para = grid_search_LR.best_params_
 ## Interview Experience Based Preparation
 * Python sort() function time complexity is O(n log n) for average and worst cases.
 * Nested For loop: n^2
+  
+```
+nyc_data['neighbourhood_group']= nyc_data['neighbourhood_group'].astype("category").cat.codes
+nyc_data['neighbourhood'] = nyc_data['neighbourhood'].astype("category").cat.codes
+nyc_data['room_type'] = nyc_data['room_type'].astype("category").cat.codes
+nyc_data.info()
+
+nyc_data['price_log'] = np.log(nyc_data.price+1)
+
+mean = nyc_model['reviews_per_month'].mean()
+nyc_model['reviews_per_month'].fillna(mean, inplace=True)
+nyc_model.isnull().sum()
+corr=nyc_model.corr(method='pearson')
+multicollinearity, V=np.linalg.eig(corr)
+scaler = StandardScaler()
+nyc_model_x = scaler.fit_transform(nyc_model_x)
+X_train, X_test, y_train, y_test = train_test_split(nyc_model_x, nyc_model_y, test_size=0.3,random_state=42)
+```
 
