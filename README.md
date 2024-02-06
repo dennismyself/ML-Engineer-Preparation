@@ -27,6 +27,8 @@ print(list(even_numbers))  # Output: [2, 4, 6]
 pairs = [(1, 'one'), (3, 'three'), (2, 'two')]
 sorted_pairs = sorted(pairs, key=lambda pair: pair[1])
 print(sorted_pairs)  # Output: [(1, 'one'), (3, 'three'), (2, 'two')]
+#Descending order
+x = sorted(a, reverse=True)
 ```
 * ```for i, ele in enumerate(l):```
 
