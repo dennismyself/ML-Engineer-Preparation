@@ -25,7 +25,28 @@ numbers = [1, 2, 3, 4]
 squared_numbers = map(lambda x: x ** 2, numbers)
 print(list(squared_numbers))  # Output: [1, 4, 9, 16]
 ```
+* global()
+  The globals() function in Python is a built-in function that returns a dictionary representing the current global symbol table.
+  ```
+  # Define a global variable
+  x = 5
 
+  # Define a function
+  def example_function():
+      # Access the global variable
+      global_var_value = globals()['x']
+      return global_var_value
+
+  # Call the function
+  result = example_function()
+
+  # Print the result
+  print("Value of 'x' accessed inside the function:", result)
+
+  # Print the global symbol table
+  print("Global symbol table:", globals())
+
+  ```
 * Laziness of iterators
 ```
 batch_images = list(executor.map(fetch_single_image_with_args, batch["image_url"]))
