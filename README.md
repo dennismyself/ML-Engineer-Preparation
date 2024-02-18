@@ -47,6 +47,17 @@ print(list(squared_numbers))  # Output: [1, 4, 9, 16]
   print("Global symbol table:", globals())
 
   ```
+
+* tensor.to
+  
+The torch.Tensor.to() method in PyTorch is a versatile and frequently used function for tensor type and device conversion. It serves two primary purposes:
+
+Device Conversion: It moves a tensor to a specified device, which can be a CPU or a GPU (if CUDA is available). This is crucial for deep learning models where you need to explicitly manage which part of the model and data resides on the CPU or GPU.
+
+For example, tensor.to('cuda') moves the tensor to the GPU, enabling faster computation suitable for deep learning. Conversely, tensor.to('cpu') moves it back to the system's memory.
+Dtype Conversion: It can also change the data type of a tensor. For example, converting a tensor from floating-point to integer type or from 32-bit floats (float32) to 64-bit floats (float64).
+
+An example of this usage is tensor.to(torch.float64), which converts the tensor to a 64-bit floating-point type.
 * Laziness of iterators
 ```
 batch_images = list(executor.map(fetch_single_image_with_args, batch["image_url"]))
