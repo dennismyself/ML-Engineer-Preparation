@@ -26,6 +26,19 @@ squared_numbers = map(lambda x: x ** 2, numbers)
 print(list(squared_numbers))  # Output: [1, 4, 9, 16]
 ```
 
+* Laziness of iterators
+```
+batch_images = list(executor.map(fetch_single_image_with_args, batch["image_url"]))
+```
+executor.map() Behavior: The map() method of the ThreadPoolExecutor is similar to Python's built-in map() function, but it executes the function (fetch_single_image_with_args) across multiple threads. Importantly, executor.map() returns an iterator, not a list. This iterator lazily yields results as they are completed.
+
+Laziness of Iterators: Since iterators are lazy, they do not compute their results until you iterate over them. This means that if you just use the iterator returned by executor.map(), the image fetching operations (represented by fetch_single_image_with_args) won't actually happen until you start iterating over the results.
+
+Eagerness of Lists: Wrapping the iterator with list() forces immediate execution of the iterable and stores all its elements in a list. This is crucial here because:
+
+It ensures that all the image fetching operations are executed immediately and concurrently.
+It collects all the fetched images into a single list, making it easier to work with them in subsequent parts of the code (like iterating over them, indexing, etc.).
+
 * filter(function, iterable)
 ```
 numbers = [1, 2, 3, 4, 5, 6]
