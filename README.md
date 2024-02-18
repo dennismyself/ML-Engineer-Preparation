@@ -1,4 +1,4 @@
-# ML-Engineer-Preparation
+`# ML-Engineer-Preparation
 
 ## Python Knowledge 
 * List Indexing: Doesn't include the right number
@@ -6,7 +6,18 @@
 ```
 lambda arguments: expression 
 ```
+* zip function
+The zip() function in Python is a built-in function that is used to aggregate elements from two or more iterables (like lists, tuples, sets etc.). It returns an iterator of tuples.
 
+```
+list1 = [1, 2, 3]
+list2 = ['a', 'b', 'c']
+
+result = zip(list1, list2)
+print(list(result))
+[(1, 'a'), (2, 'b'), (3, 'c')]
+
+```
 * map(function, iterable)
 	* iterates through the iterables, pass each iterable to the function one by one
 ```
